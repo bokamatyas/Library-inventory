@@ -1,28 +1,31 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BookModel } from '../models/book-model';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
 
+  #url = "http://localhost:3000/books";
+
   constructor(private http: HttpClient) { }
 
   // CREATE
-  addBook(_book: BookModel) {
-
+  createBook(_book: BookModel): Observable<BookModel> {
+    return this.http.post<BookModel>(this.#url, _book);
   }
   // READ
-  getBooks() {
-
+  getBooks(): Observable<BookModel[]> {
+    return this.http.get<BookModel[]>(this.#url);
   }
   // UPDATE
-  modifyBook() {
-
+  updateBook(_book: BookModel): Observable<BookModel> {
+    return this.http.put<BookModel>(`${this.#url}/${_book.id}`, _book);
   }
   // DELETE
-  deleteBook() {
-
+  deleteBook(_book: BookModel): Observable<BookModel> {
+    return this.http.delete<BookModel>(`${this.#url}/${_book.id}`);
   }
 }
