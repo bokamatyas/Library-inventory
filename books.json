@@ -1,16 +1,30 @@
 {
-	"books":  [
-		{
-			"id": 1,
-			"title": "Heir to the Empire",
-			"author": "Timothy Zahn",
-			"release_date": "01/05/1991",
-			"genres": [
-				"Novel",
-				"Science fiction",
-				"Space opera"
-			],
-			"available": 2
-		}
-	]
+  "books": [
+    {
+      "id": "9781529150384",
+      "title": "Heir to the Empire",
+      "author": "Timothy Zahn",
+      "release_date": "01/05/1991",
+      "genres": [
+        "Novel",
+        "Science fiction",
+        "Space opera"
+      ],
+      "length": 508,
+      "available": 2
+    },
+    {
+      "id": "9780593025154",
+      "title": "Dark Force Rising",
+      "author": "Timothy Zahn",
+      "release_date": "01/05/1992",
+      "genres": [
+        "Novel",
+        "Science fiction",
+        "Space opera"
+      ],
+      "length": 376,
+      "available": 5
+    }
+  ]
 }
