@@ -1,0 +1,16 @@
+{
+	"books":  [
+		{
+			"id": 1,
+			"title": "Heir to the Empire",
+			"author": "Timothy Zahn",
+			"release_date": "01/05/1991",
+			"genres": [
+				"Novel",
+				"Science fiction",
+				"Space opera"
+			],
+			"available": 2
+		}
+	]
+}
