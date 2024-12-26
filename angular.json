@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "painting-gallery": {
+    "library-catalogue": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:class": {
@@ -38,7 +38,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/painting-gallery",
+            "outputPath": "dist/library-catalogue",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -52,9 +52,12 @@
               }
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -84,10 +87,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "painting-gallery:build:production"
+              "buildTarget": "library-catalogue:build:production"
             },
             "development": {
-              "buildTarget": "painting-gallery:build:development"
+              "buildTarget": "library-catalogue:build:development"
             }
           },
           "defaultConfiguration": "development"
