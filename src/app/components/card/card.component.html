@@ -2,9 +2,9 @@
     <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
     <div class="card-body text-center">
       <div class="d-flex justify-content-center">
-        <span>&#9999;</span>
+        <span (click)="modifyBook()">&#9999;</span>
         <h5 class="card-title mx-4">{{ book?.title }}</h5>
-        <span>&#10006;</span>
+        <span (click)="delBook()">&#10006;</span>
     </div>
       <hr>
       <p class="card-title"><b>ISBN: {{ book?.id }}</b></p>

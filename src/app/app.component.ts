@@ -40,4 +40,13 @@ export class AppComponent {
       error: (_err) =>console.log(_err)
     });
   }
+
+  deleteBook(_book: BookModel) {
+    this.dataService.deleteBook(_book).subscribe({
+      next: (_result: BookModel) => {
+        this.books.splice(this.books.findIndex(b => b.id = _book.id, 1));
+      },
+      error: (_err) => console.log(_err)
+    })
+  }
 }
