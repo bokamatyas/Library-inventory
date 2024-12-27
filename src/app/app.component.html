@@ -1,10 +1,14 @@
 <div class="container main-app">
-  <h1 class="text-center mb-5 display-4">Library catalogue</h1>
-  <div class="container col-2 mx-auto text-center mb-5">
-    <button class="btn btn-primary mx-auto" (click)="newBook()">New book</button>
+  <div class="container col-md-6 mx-auto text-center mb-5 bg-secondary pb-4 text-white">
+    <h1 class="text-center mb-5 display-4">Library iteniary</h1>
+    <div class="mb-3">
+      <label for="search" class="form-label" >Search by title or ISBN</label>
+      <input type="text" class="form-control" id="search" (input)="filterBooks($event)" [value]="filterParameter">
+    </div>
+    <button class="btn btn-warning mx-auto" (click)="newBook()">New book</button>
   </div>
   <div class="container mx-auto col-md-8">
-    <app-card-list [books]="books" (updateBook)="setBookData($event)" (deleteBook)="deleteBook($event)" (quantityModified)="updateBook($event)"></app-card-list>
+    <app-card-list [books]="filteredBooks" (updateBook)="setBookData($event)" (deleteBook)="deleteBook($event)" (quantityModified)="updateBook($event)"></app-card-list>
   </div>
 </div>
 <footer class="footer bg-dark text-center text-white py-2">&copy;BM - 2024</footer>

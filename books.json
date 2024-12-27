@@ -1,7 +1,8 @@
 {
   "books": [
     {
-      "id": "9781529150384",
+      "id": "1",
+      "isbn": "9781529150384",
       "title": "Heir to the Empire",
       "author": "Timothy Zahn",
       "release_date": "01/05/1991",
@@ -14,7 +15,8 @@
       "available": 2
     },
     {
-      "id": "9780593025154",
+      "id": "2",
+      "isbn": "9780593025154",
       "title": "Dark Force Rising",
       "author": "Timothy Zahn",
       "release_date": "01/05/1992",
