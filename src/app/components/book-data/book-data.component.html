@@ -1,0 +1,48 @@
+@if(bookData){
+    <div class="modal" id="exampleModal" tabindex="-1" style="display: block;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Manage book data</h5>
+                    <button type="button" class="btn-close" (click)="cancel()"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="title" class="form-label">Title</label>
+                            <input type="text" class="form-control" id="title" [value]="bookData.title" (change)="bookData.title = getData($event)">
+                        </div>
+                        <div class="mb-3">
+                            <label for="isbn" class="form-label">Category</label>
+                            <!-- <select class="form-select" id="isbn" [value]="bookData.id" (change)="bookData.id = getData($event)">
+                                <option selected>Select...</option>
+                                <option value="Robomission Elementary">Robomission Elementary</option>
+                                <option value="Robomission Junior">Robomission Junior</option>
+                                <option value="Robomission Senior">Robomission Senior</option>
+                                <option value="Robosport">Robosport</option>
+                                <option value="Future Innovators">Future Innovators</option>
+                                <option value="Future Engeneers">Future Engeneers</option>
+                            </select> -->
+                        </div>
+                        <div class="mb-3">
+                            <label for="author" class="form-label">Author</label>
+                            <input type="number" class="form-control" id="author" min="2" max="3" [value]="bookData.author" (change)="bookData.author = getData($event)">
+                        </div>
+                        <div class="mb-3">
+                            <label for="release_date" class="form-label">Release Date</label>
+                            <input type="text" class="form-control" id="release_date" [value]="bookData.release_date" (change)="bookData.release_date = getData($event)">
+                        </div>
+                        <div class="mb-3">
+                            <label for="length" class="form-label">Pages</label>
+                            <input type="email" class="form-control" id="length" [value]="bookData.length" (change)="bookData.length = getNumberData($event)">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" (click)="cancel()">Cancel</button>
+                    <button type="button" class="btn btn-success" (click)="save()">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    }
