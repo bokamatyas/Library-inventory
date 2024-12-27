@@ -1,7 +1,7 @@
 <div class="row">
     @for (book of books; track $index) {
         <div class="col-12 col-md-6">
-            <app-card [book]="book" (bookModified)="modifyBook(book)"></app-card>
+            <app-card [book]="book" (bookModified)="modifyBook(book)" (quantityModified)="modifyQuantity($event)"></app-card>
         </div>
     }
 </div>
