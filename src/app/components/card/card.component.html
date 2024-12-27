@@ -8,19 +8,25 @@
     </div>
     <hr class="mt-0 mb-1">
     <div class="card-body py-0">
-        <h6 class="card-text">Genres:</h6>    
-            <ul>
-                @for (genre of book?.genres; track $index) {
-                    <li class="list-group-item p-0 ms-2">{{ genre }}</li>
-                }      
-            </ul>
-    </div>
-    <div class="card-body pt-0">
-      <p class="card-text my-1">Released: <i>{{ book?.release_date }}</i></p>
-      <p class="card-text m-0">Pages: <i>{{ book?.length }}</i></p>              
+        <div class="row">
+            <div class="col-8">
+                <h6 class="card-text mb-1">Genres:</h6>    
+                    <ul>
+                        @for (genre of book?.genres; track $index) {
+                            <li class="list-group-item p-0 ms-2">
+                                {{ genre }}
+                            </li>                            
+                        }      
+                </ul>
+            </div>
+            <div class="col-4 text-center">
+                <p class="card-text m-0">Released:<br><i>{{ book?.release_date }}</i></p>
+                <p class="card-text m-0">Pages:<br><i>{{ book?.length }}</i></p>              
+            </div>
+        </div>
     </div>
     <hr class="m-0">    
-    <div class="card-body mx-auto">
+    <div class="card-body mx-auto text-center">
         <h5 class="card-title">Available: {{ book?.available }}</h5>
         <a href="#" class="card-link">Card link</a>
         <a href="#" class="card-link">Another link</a>
