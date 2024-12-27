@@ -15,12 +15,12 @@ export class CardComponent {
   @Output() deleteBook = new EventEmitter<BookModel>();
   @Output() quantityModified = new EventEmitter<BookModel>();
 
-  addQuantity(){
+  async addQuantity(){
     this.book!.available++;
     this.quantityModified.emit(this.book);
   }
 
-  subtractQuantity() {
+  async subtractQuantity() {
     if(this.book?.available != 0){
       this.book!.available--
       this.quantityModified.emit(this.book);

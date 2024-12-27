@@ -4,6 +4,7 @@ import { BookModel } from './models/book-model';
 import { DataService } from './services/data.service';
 import { CardListComponent } from './components/card-list/card-list.component';
 import { BookDataComponent } from "./components/book-data/book-data.component";
+import { fromURL, blobToURL } from 'image-resize-compress';
 
 @Component({
   selector: 'app-root',
@@ -64,7 +65,8 @@ export class AppComponent {
     });
   }
 
-  updateBook(_book: BookModel){    
+  async updateBook(_book: BookModel){  
+    _book.image = await blobToURL(await fromURL(_book.image as string));
     this.dataService.updateBook(_book).subscribe({
       next: (_result: BookModel) => {
         this.books[this.books.findIndex(b => b.id == _result.id)] = _result
