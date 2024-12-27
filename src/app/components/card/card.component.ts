@@ -10,12 +10,16 @@ import { BookModel } from '../../models/book-model';
 })
 export class CardComponent {
   @Input() book: BookModel | undefined
-  @Output() add = EventEmitter<void>
-  @Output() subtract = EventEmitter<void>
+  @Output() bookModified = new EventEmitter<BookModel>()
 
   addQuantity(){
+    this.book!.available++;
+    this.bookModified.emit(this.book);
   }
 
   subtractQuantity() {
+    if(this.book?.available != 0)
+      this.book!.available--;
+    this.bookModified.emit(this.book);
   }
 }

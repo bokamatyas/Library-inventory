@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { BookModel } from '../../models/book-model';
 import { CardComponent } from '../card/card.component';
 
@@ -11,4 +11,9 @@ import { CardComponent } from '../card/card.component';
 })
 export class CardListComponent {
   @Input() books: BookModel[] = [];
+  @Output() bookModified = new EventEmitter<BookModel>();
+
+  modifyBook(_book: BookModel) {  
+    this.bookModified.emit(_book);
+  }
 }
