@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "library-catalogue": {
+    "library-iteniary": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:class": {
@@ -38,7 +38,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/library-catalogue",
+            "outputPath": "dist/library-iteniary",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -87,10 +87,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "library-catalogue:build:production"
+              "buildTarget": "library-iteniary:build:production"
             },
             "development": {
-              "buildTarget": "library-catalogue:build:development"
+              "buildTarget": "library-iteniary:build:development"
             }
           },
           "defaultConfiguration": "development"

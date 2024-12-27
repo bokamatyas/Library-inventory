@@ -14,7 +14,7 @@ import { fromURL, blobToURL } from 'image-resize-compress';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  // title = 'library-catalogue';
+  // title = 'library-iteniary';
   newBookData: BookModel | undefined = undefined;
   modBookData: BookModel | undefined = undefined;
   originalId: string | undefined;
