@@ -4,5 +4,6 @@ td span, tr span {
 
 .main-app {
     background-color: #0af;
-    padding-bottom: 10vh;    
+    padding-bottom: 10vh;  
+    min-height: 90vh;
 }

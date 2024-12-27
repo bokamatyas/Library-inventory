@@ -1,5 +1,6 @@
 export interface BookModel {
-    id: string
+    id: string | undefined
+    isbn: string
     title: string
     author: string
     release_date: string
