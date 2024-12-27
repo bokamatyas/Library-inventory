@@ -33,7 +33,15 @@ export class AppComponent {
 
   modifyBook(_inBook: BookModel) {
     this.bookData = _inBook;
-    console.log(this.bookData);
-    
+    console.log(this.bookData);    
+  }
+
+  modifyQuantity(_book: BookModel){
+    this.dataService.updateBook(_book).subscribe({
+      next: (result: BookModel) => {
+        this.books[this.books.findIndex(b => b.id = _book.id)]
+      },
+      error: (_err) =>console.log(_err)
+    });
   }
 }

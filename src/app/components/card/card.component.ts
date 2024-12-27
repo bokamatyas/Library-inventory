@@ -9,17 +9,19 @@ import { BookModel } from '../../models/book-model';
   styleUrl: './card.component.css'
 })
 export class CardComponent {
-  @Input() book: BookModel | undefined
-  @Output() bookModified = new EventEmitter<BookModel>()
+  @Input() book: BookModel | undefined;
+  @Output() bookModified = new EventEmitter<BookModel>();
+  @Output() quantityModified = new EventEmitter<BookModel>();
 
   addQuantity(){
     this.book!.available++;
-    this.bookModified.emit(this.book);
+    this.quantityModified.emit(this.book);
   }
 
   subtractQuantity() {
-    if(this.book?.available != 0)
-      this.book!.available--;
-    this.bookModified.emit(this.book);
+    if(this.book?.available != 0){
+      this.book!.available--
+      this.quantityModified.emit(this.book);
+    }
   }
 }
