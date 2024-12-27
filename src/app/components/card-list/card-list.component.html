@@ -1,0 +1,7 @@
+<div class="row">
+    @for (book of books; track $index) {
+        <div class="col-12 col-md-4">
+            <app-card [book]="book"></app-card>
+        </div>
+    }
+</div>
