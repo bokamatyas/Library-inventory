@@ -31,6 +31,10 @@ export class AppComponent {
 
   }
 
+  setBookData(_book: BookModel){
+    this.bookData = structuredClone(_book);
+  }
+
   modifyBook(_book: BookModel){
     this.dataService.updateBook(_book).subscribe({
       next: (_result: BookModel) => {
