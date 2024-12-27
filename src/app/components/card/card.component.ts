@@ -10,7 +10,8 @@ import { BookModel } from '../../models/book-model';
 })
 export class CardComponent {
   @Input() book: BookModel | undefined;
-  @Output() bookModified = new EventEmitter<BookModel>();
+  @Output() updateBook = new EventEmitter<BookModel>();
+  @Output() deleteBook = new EventEmitter<BookModel>();
   @Output() quantityModified = new EventEmitter<BookModel>();
 
   addQuantity(){
@@ -23,5 +24,13 @@ export class CardComponent {
       this.book!.available--
       this.quantityModified.emit(this.book);
     }
+  }
+
+  modifyBook() {
+    this.updateBook.emit(this.book);
+  }
+
+  delBook() {
+    this.deleteBook.emit(this.book);
   }
 }

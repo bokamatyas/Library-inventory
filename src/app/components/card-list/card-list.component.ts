@@ -11,14 +11,19 @@ import { CardComponent } from '../card/card.component';
 })
 export class CardListComponent {
   @Input() books: BookModel[] = [];
-  @Output() bookModified = new EventEmitter<BookModel>();
+  @Output() updateBook = new EventEmitter<BookModel>();
+  @Output() deleteBook = new EventEmitter<BookModel>();
   @Output() quantityModified = new EventEmitter<BookModel>();
 
   modifyBook(_book: BookModel) {  
-    this.bookModified.emit(_book);
+    this.updateBook.emit(_book);
   }
 
   modifyQuantity(_book: BookModel){
     this.quantityModified.emit(_book);
+  }
+
+  delBook(_book: BookModel){
+    this.deleteBook.emit(_book);
   }
 }
