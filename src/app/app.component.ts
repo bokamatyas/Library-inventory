@@ -35,6 +35,7 @@ export class AppComponent {
     this.dataService.updateBook(_book).subscribe({
       next: (_result: BookModel) => {
         this.books[this.books.findIndex(b => b.id = _book.id)] = _result
+        this.bookData = undefined;
       },
       error: (_err) =>console.log(_err)
     });
