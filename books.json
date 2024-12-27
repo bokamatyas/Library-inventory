@@ -27,6 +27,19 @@
       ],
       "length": 376,
       "available": 4
+    },
+    {
+      "id": "c553",
+      "isbn": "978-0-7475-3269-9",
+      "title": "Harry Potter and the Philosopher's Stone",
+      "author": "J. K. Rowling",
+      "release_date": "26/06/1997",
+      "genres": [
+        "Fantasy",
+        "Novel"
+      ],
+      "length": 223,
+      "available": 0
     }
   ]
 }

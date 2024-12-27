@@ -44,6 +44,7 @@ export class AppComponent {
       genres: [],
       length: 0,
       available: 0,
+      image: ""
     }
   }
 

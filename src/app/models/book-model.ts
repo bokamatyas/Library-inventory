@@ -7,5 +7,6 @@ export interface BookModel {
     genres: string[]
     length: number
     available: number
+    image: string | ArrayBuffer
 }
   

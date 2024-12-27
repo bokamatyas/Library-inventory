@@ -6,3 +6,8 @@
 span {
     cursor: pointer;
 }
+
+.card-img-top {
+    height: 200px;
+    width: fit-content;    
+}

@@ -8,6 +8,10 @@
                 </div>
                 <div class="modal-body">
                     <form>
+                        <div class="mb-3">    
+                            <label for="image" class="form-label">Image (Max 2MB)</label><br>
+                            <input class="form-control-file" type="file" id="image" accept=".png, .jpg" ngf-max-size="2MB" (change)="addAttachment($event)">                        
+                        </div>
                         <div class="mb-3">
                             <label for="title" class="form-label">Title</label>
                             <input type="text" class="form-control" id="title" [value]="bookData.title" (change)="bookData.title = getData($event)">
@@ -23,6 +27,10 @@
                         <div class="mb-3">
                             <label for="release_date" class="form-label">Release Date</label>
                             <input type="text" class="form-control" id="release_date" [value]="bookData.release_date" (change)="bookData.release_date = getData($event)">
+                        </div>
+                        <div class="mb-3">
+                            <label for="genres" class="form-label">Genres (seperated by "Enter" key)</label>
+                            <textarea type="text" class="form-control" id="genres" [value]="bookData.genres.join('\n')" (change)="bookData.genres = getCollectionData($event)"></textarea>
                         </div>
                         <div class="mb-3">
                             <label for="length" class="form-label">Pages</label>

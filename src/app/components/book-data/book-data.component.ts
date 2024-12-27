@@ -1,5 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { BookModel } from '../../models/book-model';
+import { blobToURL, fromBlob } from 'image-resize-compress';
+
 
 @Component({
   selector: 'app-book-data',
@@ -20,12 +22,21 @@ export class BookDataComponent {
     this.saved.emit(this.bookData);
   }
 
-  getData(event: any): string{
-    return event.target.value;
+  getData(_input: any): string{
+    return _input.target.value;
   }
 
-  getNumberData(event: any): number {
-    return +event.target.value;
+  getNumberData(_input: any): number {
+    return +_input.target.value;
+  }
+
+  getCollectionData(_input: any) {
+    return _input.target.value.split('\n');
+  }
+
+  async addAttachment(_input: any) {
+    const resizedImage = await fromBlob(_input.target.files[0], 8, 200, 200, 'jpeg')  
+    this.bookData!.image = await blobToURL(resizedImage);
   }
 
 }
