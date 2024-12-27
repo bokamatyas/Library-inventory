@@ -1,7 +1,11 @@
 <div class="card">
     <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
     <div class="card-body text-center">
-      <div class="d-flex justify-content-center"><span>&#9999;</span><h5 class="card-title mx-4">{{ book?.title }}</h5><span>&#10006;</span></div>
+      <div class="d-flex justify-content-center">
+        <span>&#9999;</span>
+        <h5 class="card-title mx-4">{{ book?.title }}</h5>
+        <span>&#10006;</span>
+    </div>
       <hr>
       <p class="card-title"><b>ISBN: {{ book?.id }}</b></p>
       <p class="card-text">Author: {{ book?.author }}</p>
@@ -26,9 +30,20 @@
         </div>
     </div>
     <hr class="m-0">    
-    <div class="card-body mx-auto text-center">
-        <h5 class="card-title">Available: {{ book?.available }}</h5>
-        <a href="#" class="card-link">+</a>
-        <a href="#" class="card-link">-</a>
+    <div class="card-body mx-auto text-center p-1">
+        <h5 class="card-title">Available: 
+            @if(book?.available! > 0) {
+                {{ book?.available }}            
+            }
+            @else {
+                None
+            }
+        </h5>        
+    </div>
+    <hr class="m-0">        
+    <div class="card-body mx-auto text-center pt-0">
+        <h6 class="card-text">Change Quantity:</h6>    
+        <span class="card-link btn btn-primary" (click)="addQuantity()">Add</span>
+        <span class="card-link btn btn-primary" (click)="subtractQuantity()">Subtract</span>
     </div>
 </div>

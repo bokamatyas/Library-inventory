@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { BookModel } from '../../models/book-model';
 
 @Component({
@@ -10,4 +10,12 @@ import { BookModel } from '../../models/book-model';
 })
 export class CardComponent {
   @Input() book: BookModel | undefined
+  @Output() add = EventEmitter<void>
+  @Output() subtract = EventEmitter<void>
+
+  addQuantity(){
+  }
+
+  subtractQuantity() {
+  }
 }
