@@ -14,7 +14,8 @@ import { BookDataComponent } from "./components/book-data/book-data.component";
 })
 export class AppComponent {
   // title = 'library-catalogue';
-  @Input() bookData: BookModel | undefined = undefined;
+  newBookData: BookModel | undefined = undefined;
+  modBookData: BookModel | undefined = undefined;
 
   books: BookModel[] = [];
 
@@ -28,18 +29,36 @@ export class AppComponent {
   }
 
   newBook(){
-
+    this.newBookData = {
+      id: "",
+      title: "",
+      author: "",
+      release_date: "",
+      genres: [],
+      length: 0,
+      available: 0,
+    }
   }
 
   setBookData(_book: BookModel){
-    this.bookData = structuredClone(_book);
+    this.modBookData = structuredClone(_book);
   }
 
-  modifyBook(_book: BookModel){
+  createBook(_book: BookModel) {
+    this.dataService.createBook(_book).subscribe({
+      next: (_result: BookModel) => {
+        this.books.push(_result);
+        this.newBookData = undefined;
+      },
+      error: (_err) => console.log(_err)
+    });
+  }
+
+  updateBook(_book: BookModel){
     this.dataService.updateBook(_book).subscribe({
       next: (_result: BookModel) => {
         this.books[this.books.findIndex(b => b.id == _book.id)] = _result
-        this.bookData = undefined;
+        this.modBookData = undefined;
       },
       error: (_err) =>console.log(_err)
     });
@@ -48,9 +67,9 @@ export class AppComponent {
   deleteBook(_book: BookModel) {
     this.dataService.deleteBook(_book).subscribe({
       next: (_result: BookModel) => {
-        this.books.splice(this.books.findIndex(b => b.id == _book.id, 0));        
+        this.books.splice(this.books.findIndex(b => b.id == _book.id, 1));        
       },
       error: (_err) => console.log(_err)
-    })
+    });
   }
 }
