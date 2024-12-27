@@ -1,35 +1,6 @@
 <div class="container">
-  <h1 class="text-center mb-3">Library catalogue</h1>
-  <table class="table table-hover table-bordered table-info">
-    <thead>
-      <tr>      
-        <th>ISBN</th>
-        <th>Title</th>
-        <th>Author</th>
-        <th>Release Date</th>
-        <th>Genres</th>
-        <th>Pages</th>
-        <th>Available</th>
-      </tr>
-    </thead>
-    <tbody>
-      @for (book of books; track $index) {
-        <tr>
-          <td>{{ book.id }}</td>
-          <td>{{ book.title }}</td>
-          <td>{{ book.author }}</td>
-          <td>{{ book.release_date }}</td>          
-          <td>
-            <ul class="list-group list-group-flush">
-              @for (genre of book.genres; track $index) {
-                <li class="list-group-item list-group-item-info p-0">{{ genre }}</li>
-              }
-            </ul>
-          </td>
-          <td>{{ book.length }}</td>
-          <td>{{ book.available }}</td>
-        </tr>
-      }
-    </tbody>
-  </table>
+  <h1 class="text-center mb-5 display-5">Library catalogue</h1>
+  <div class="container mx-auto col-md-8">
+    <app-card-list [books]="books"></app-card-list>
+  </div>
 </div>
