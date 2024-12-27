@@ -15,8 +15,6 @@ export class CardComponent {
   @Output() deleteBook = new EventEmitter<BookModel>();
   @Output() quantityModified = new EventEmitter<BookModel>();
 
-  imageUrl: string = "";
-
   addQuantity(){
     this.book!.available++;
     this.quantityModified.emit(this.book);
@@ -37,13 +35,12 @@ export class CardComponent {
     this.deleteBook.emit(this.book);
   }
 
-
   async ngOnInit() {  
     try{
-      this.imageUrl = URL.createObjectURL(await fromURL(this.book?.image as string, 100, 128, 128, "jpeg"));
+      this.book!.image = URL.createObjectURL(await fromURL(this.book?.image as string, 100, 200, 200, "webp"));
     }
     catch {
-      this.imageUrl = './no-cover.png';
+      this.book!.image = './no-cover.png';
     }
   }
 

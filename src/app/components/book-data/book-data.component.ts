@@ -35,7 +35,7 @@ export class BookDataComponent {
   }
 
   async addAttachment(_input: any) {
-    const resizedImage = await fromBlob(_input.target.files[0], 8, 200, 200, 'jpeg')  
+    const resizedImage = await fromBlob(_input.target.files[0], 8, 200, 200, 'webp')  
     this.bookData!.image = await blobToURL(resizedImage);
   }
 
