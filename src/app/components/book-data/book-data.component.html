@@ -11,22 +11,14 @@
                         <div class="mb-3">
                             <label for="title" class="form-label">Title</label>
                             <input type="text" class="form-control" id="title" [value]="bookData.title" (change)="bookData.title = getData($event)">
-                        </div>
+                        </div>                    
                         <div class="mb-3">
-                            <label for="isbn" class="form-label">Category</label>
-                            <!-- <select class="form-select" id="isbn" [value]="bookData.id" (change)="bookData.id = getData($event)">
-                                <option selected>Select...</option>
-                                <option value="Robomission Elementary">Robomission Elementary</option>
-                                <option value="Robomission Junior">Robomission Junior</option>
-                                <option value="Robomission Senior">Robomission Senior</option>
-                                <option value="Robosport">Robosport</option>
-                                <option value="Future Innovators">Future Innovators</option>
-                                <option value="Future Engeneers">Future Engeneers</option>
-                            </select> -->
+                            <label for="isbn" class="form-label">Author</label>
+                            <input type="text" class="form-control" id="isbn" min="2" max="3" [value]="bookData.id" (change)="bookData.id = getData($event)">
                         </div>
                         <div class="mb-3">
                             <label for="author" class="form-label">Author</label>
-                            <input type="number" class="form-control" id="author" min="2" max="3" [value]="bookData.author" (change)="bookData.author = getData($event)">
+                            <input type="text" class="form-control" id="author" min="2" max="3" [value]="bookData.author" (change)="bookData.author = getData($event)">
                         </div>
                         <div class="mb-3">
                             <label for="release_date" class="form-label">Release Date</label>
@@ -34,7 +26,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="length" class="form-label">Pages</label>
-                            <input type="email" class="form-control" id="length" [value]="bookData.length" (change)="bookData.length = getNumberData($event)">
+                            <input type="number" class="form-control" id="length" [value]="bookData.length" (change)="bookData.length = getNumberData($event)">
                         </div>
                     </form>
                 </div>
@@ -45,4 +37,4 @@
             </div>
         </div>
     </div>
-    }
+}
