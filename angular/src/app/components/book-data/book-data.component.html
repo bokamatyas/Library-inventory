@@ -9,8 +9,8 @@
                 <div class="modal-body">
                     <form>
                         <div class="mb-3">    
-                            <label for="image" class="form-label">Image (Max 2MB)</label><br>
-                            <input class="form-control-file" type="file" id="image" accept=".png, .jpg, .webp, .jpeg" ngf-max-size="2MB" (change)="addAttachment($event)">                        
+                            <label for="image" class="form-label">Image (Max 200kB)</label><br>
+                            <input class="form-control-file upload-file" type="file" id="image" accept=".png, .jpg, .webp, .jpeg" ngf-max-size="200kB" (change)="addAttachment($event)">                        
                         </div>
                         <div class="mb-3">
                             <label for="title" class="form-label">Title</label>

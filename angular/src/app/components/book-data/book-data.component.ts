@@ -35,6 +35,11 @@ export class BookDataComponent {
   }
 
   async addAttachment(_input: any) {
+    if(_input.target.files[0].size / 1024 > 200){
+      alert("File must be smaller or exactly 200kB!");
+      (document.querySelector('#image') as HTMLInputElement).value = '';
+      return;
+    }
     const resizedImage = await fromBlob(_input.target.files[0], 8, 200, 200, 'webp')  
     this.bookData!.image = await blobToURL(resizedImage);
   }
