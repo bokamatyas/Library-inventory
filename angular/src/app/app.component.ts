@@ -67,7 +67,8 @@ export class AppComponent {
     _book.image = await blobToURL(await fromURL(_book.image as string));
     this.dataService.updateBook(_book).subscribe({
       next: (_result: BookModel) => {
-        this.books[this.books.findIndex(b => b.id == _result.id)] = _result
+        const index: number = this.books.findIndex(b => b.id == _result.id);
+        this.books[index] = _result
         this.modBookData = undefined;
         this.filter(this.filterParameter);
       },
@@ -78,8 +79,9 @@ export class AppComponent {
   deleteBook(_book: BookModel) {
     this.dataService.deleteBook(_book).subscribe({
       next: (_result: BookModel) => {
-        this.books.splice(this.books.findIndex(b => b.id == _book.id, 1));
-        this.filter(this.filterParameter);        
+        const index: number = this.books.findIndex(b => b.id == _result.id);
+        this.books.splice(index, 1);
+        this.filter(this.filterParameter);                
       },
       error: (_err) => console.log(_err)
     });
@@ -88,7 +90,8 @@ export class AppComponent {
   async patchBook(_changes: {id: string, available: number}) {
     this.dataService.patchBook(_changes).subscribe({
       next: (_result: BookModel) =>{
-        this.books[this.books.findIndex(b => b.id == _result.id)].available = _changes.available
+        const index: number = this.books.findIndex(b => b.id == _result.id);
+        this.books[index].available = _changes.available;
         this.modBookData = undefined;
         this.filter(this.filterParameter);
       },
