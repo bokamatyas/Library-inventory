@@ -1,8 +1,8 @@
 <div class="card mt-3">
     <div class="row text-center mx-auto">
         <div class="col-3">
-            <button class="btn btn-warning mt-3 rounded-pill">            
-                <span (click)="modifyBook()" class="material-icons">
+            <button (click)="modifyBook()" class="btn btn-warning mt-3 rounded-pill">            
+                <span class="material-icons align-middle">
                     edit
                 </span>
             </button>
@@ -11,8 +11,8 @@
             <img class="card-img-top mt-1" [src]="book?.image" alt="Book cover image">
         </div>
         <div class="col-3">
-            <button class="btn btn-danger mt-3 rounded-pill">
-                <span (click)="delBook()" class="material-icons">
+            <button (click)="delBook()" class="btn btn-danger mt-3 rounded-pill">
+                <span class="material-icons align-middle">
                     delete
                 </span>
             </button>
@@ -59,13 +59,13 @@
     <hr class="m-0">        
     <div class="card-body mx-auto text-center pt-0">
         <h6 class="card-text">Change Quantity:</h6>    
-         <button class="btn btn-primary p-1 me-2 rounded-pill">
-             <span (click)="addQuantity()" class="material-icons">
+         <button (click)="addQuantity()" class="btn btn-primary p-1 me-2 rounded-pill">
+             <span class="material-icons align-middle">
                  add
              </span>
          </button>
-         <button class="btn btn-primary p-1 rounded-pill">
-            <span (click)="subtractQuantity()" class="material-icons">
+         <button (click)="subtractQuantity()" class="btn btn-primary p-1 rounded-pill">
+            <span class="material-icons align-middle">
                 remove
             </span>
         </button>

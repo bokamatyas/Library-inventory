@@ -5,7 +5,11 @@
       <label for="search" class="form-label" >Search by title or ISBN</label>
       <input type="text" class="form-control" id="search" (input)="filterBooks($event)" [value]="filterParameter">
     </div>
-    <button class="btn btn-warning mx-auto" (click)="newBook()">New book</button>
+    <button class="btn btn-warning mx-auto" (click)="newBook()">
+      <span class="material-icons align-middle">
+        import_contacts
+      </span>
+      New book</button>
   </div>
   <div class="container mx-auto col-md-8">
     <app-card-list [books]="filteredBooks" (updateBook)="setBookData($event)" (deleteBook)="deleteBook($event)" (quantityModified)="patchBook($event)"></app-card-list>
