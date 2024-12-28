@@ -17,7 +17,6 @@ export class AppComponent {
   // title = 'library-iteniary';
   newBookData: BookModel | undefined = undefined;
   modBookData: BookModel | undefined = undefined;
-  originalId: string | undefined;
 
   books: BookModel[] = [];
   filteredBooks: BookModel[] = [];
@@ -51,7 +50,6 @@ export class AppComponent {
 
   setBookData(_book: BookModel){
     this.modBookData = structuredClone(_book);
-    this.originalId = _book.id;
   }
 
   createBook(_book: BookModel) {
@@ -71,7 +69,6 @@ export class AppComponent {
       next: (_result: BookModel) => {
         this.books[this.books.findIndex(b => b.id == _result.id)] = _result
         this.modBookData = undefined;
-        this.originalId = undefined;
         this.filter(this.filterParameter);
       },
       error: (_err) =>console.log(_err)
@@ -88,12 +85,23 @@ export class AppComponent {
     });
   }
 
+  async patchBook(_changes: {id: string, available: number}) {
+    this.dataService.patchBook(_changes).subscribe({
+      next: (_result: BookModel) =>{
+        this.books[this.books.findIndex(b => b.id == _result.id)].available = _changes.available
+        this.modBookData = undefined;
+        this.filter(this.filterParameter);
+      },
+      error: (_err) =>console.log(_err)
+    })
+  }
+
   filterBooks(_event: any){
     this.filterParameter = _event.target.value;
     this.filter(this.filterParameter);        
   }
 
-  filter(_parameter: string){
+  private filter(_parameter: string){
     this.filteredBooks = this.books.filter(b => 
       b.title.toLocaleLowerCase().startsWith(_parameter.toLocaleLowerCase()) || 
       b.isbn.toLocaleLowerCase().startsWith(_parameter.toLocaleLowerCase()));   

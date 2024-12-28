@@ -13,14 +13,14 @@ export class CardListComponent {
   @Input() books: BookModel[] = [];
   @Output() updateBook = new EventEmitter<BookModel>();
   @Output() deleteBook = new EventEmitter<BookModel>();
-  @Output() quantityModified = new EventEmitter<BookModel>();
+  @Output() quantityModified = new EventEmitter<{id: string, available: number}>();
 
   modifyBook(_book: BookModel) {  
     this.updateBook.emit(_book);
   }
 
-  modifyQuantity(_book: BookModel){
-    this.quantityModified.emit(_book);
+  modifyQuantity(_changes: {id: string, available: number}){
+    this.quantityModified.emit(_changes);
   }
 
   delBook(_book: BookModel){

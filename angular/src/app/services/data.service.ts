@@ -28,4 +28,8 @@ export class DataService {
   deleteBook(_book: BookModel): Observable<BookModel> {
     return this.http.delete<BookModel>(`${this.#url}/${_book.id}`);
   }
+  // PATCH
+  patchBook(_changes: {id: string, available: number}): Observable<BookModel> {
+    return this.http.patch<BookModel>(`${this.#url}/${_changes.id}`, { available: _changes.available })
+  }
 }
