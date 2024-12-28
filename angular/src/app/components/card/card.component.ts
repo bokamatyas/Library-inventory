@@ -13,17 +13,15 @@ export class CardComponent {
   @Input() book: BookModel | undefined;
   @Output() updateBook = new EventEmitter<BookModel>();
   @Output() deleteBook = new EventEmitter<BookModel>();
-  @Output() quantityModified = new EventEmitter<BookModel>();
+  @Output() quantityModified = new EventEmitter<{id: string, available: number}>();
 
   async addQuantity(){
-    this.book!.available++;
-    this.quantityModified.emit(this.book);
+    this.quantityModified.emit({ id: this.book!.id!, available: this.book!.available+1 });
   }
 
   async subtractQuantity() {
     if(this.book?.available != 0){
-      this.book!.available--
-      this.quantityModified.emit(this.book);
+      this.quantityModified.emit({ id: this.book!.id!, available: this.book!.available-1 });
     }
   }
 

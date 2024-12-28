@@ -1,10 +1,26 @@
 <div class="card mt-3">
-    <img class="card-img-top mx-auto mt-1" [src]="book?.image" alt="Book cover image">
+    <div class="row text-center mx-auto">
+        <div class="col-3">
+            <button (click)="modifyBook()" class="btn btn-warning mt-3 rounded-pill">            
+                <span class="material-icons align-middle">
+                    edit
+                </span>
+            </button>
+        </div>
+        <div class="col-6">
+            <img class="card-img-top mt-1" [src]="book?.image" alt="Book cover image">
+        </div>
+        <div class="col-3">
+            <button (click)="delBook()" class="btn btn-danger mt-3 rounded-pill">
+                <span class="material-icons align-middle">
+                    delete
+                </span>
+            </button>
+        </div>
+    </div>
     <div class="card-body text-center">
       <div class="d-flex justify-content-center">
-        <span (click)="modifyBook()">&#9999;</span>
         <h5 class="card-title mx-4">{{ book?.title }}</h5>
-        <span (click)="delBook()">&#10006;</span>
     </div>
       <hr>
       <p class="card-title"><b>ISBN: {{ book?.isbn }}</b></p>
@@ -43,7 +59,15 @@
     <hr class="m-0">        
     <div class="card-body mx-auto text-center pt-0">
         <h6 class="card-text">Change Quantity:</h6>    
-        <span class="card-link btn btn-primary" (click)="addQuantity()">Add</span>
-        <span class="card-link btn btn-primary" (click)="subtractQuantity()">Subtract</span>
+         <button (click)="addQuantity()" class="btn btn-primary p-1 me-2 rounded-pill">
+             <span class="material-icons align-middle">
+                 add
+             </span>
+         </button>
+         <button (click)="subtractQuantity()" class="btn btn-primary p-1 rounded-pill">
+            <span class="material-icons align-middle">
+                remove
+            </span>
+        </button>
     </div>
 </div>
