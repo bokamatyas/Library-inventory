@@ -9,5 +9,5 @@ span {
 
 .card-img-top {
     height: 200px;
-    width: fit-content;    
+    max-width: 150px;    
 }
